@@ -84,11 +84,31 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+ACCOUNT_CHANGE_EMAIL = True
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
+ACCOUNT_EMAIL_NOTIFICATIONS = True
+
+ACCOUNT_EMAIL_REQUIRED = True
+
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
+ACCOUNT_EMAIL_SUBJECT_PREFIX = 'BlackJack'
+
+ACCOUNT_EMAIL_UNKNOWN_ACCOUNTS = False
+
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
+
+SOCIALACCOUNT_EMAIL_AUTHENTICATION = True
+
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -9,4 +9,7 @@ class User(models.Model):
     last_name = models.CharField(max_length=30)
     current_balance = models.IntegerField()
     birthday = models.DateField()
+
+    def __str__(self):
+        return str(self.first_name)
     
