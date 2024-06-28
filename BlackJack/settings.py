@@ -68,6 +68,11 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+ACCOUNT_FORMS = {
+    'signup': 'Credentials.forms.CustomSignupForm',
+    'login': 'Credentials.forms.CustomLoginForm',
+}
+
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'APP': {
@@ -90,6 +95,10 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 ACCOUNT_EMAIL_NOTIFICATIONS = True
 
+ACCOUNT_USERNAME_REQUIRED = False
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+
 ACCOUNT_EMAIL_REQUIRED = True
 
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
@@ -104,11 +113,14 @@ ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
 
 SOCIALACCOUNT_EMAIL_AUTHENTICATION = True
 
+AUTH_USER_MODEL = 'Credentials.User'
+
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), 
+                 os.path.join(BASE_DIR, 'Credentials/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
