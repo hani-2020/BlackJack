@@ -7,9 +7,10 @@ class CustomSignupForm(SignupForm):
     def __init__(self, *args, **kwargs):
         super(CustomSignupForm, self).__init__(*args, **kwargs)
         del self.fields['password2']
-    first_name = forms.CharField(max_length=30)
-    last_name = forms.CharField(max_length=30)
-    birthday = forms.DateField(widget=forms.TextInput(attrs={'type': 'date'}))
+
+    first_name = forms.CharField(max_length=30, required=True)
+    last_name = forms.CharField(max_length=30, required=True)
+    birthday = forms.DateField(required=True, widget=forms.DateInput(attrs={'type': 'date'}))
     email = forms.EmailField(max_length=254, required=True)
 
     def signup(self, request, user):
