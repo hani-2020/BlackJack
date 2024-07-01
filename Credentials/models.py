@@ -6,7 +6,7 @@ import django.utils.timezone
 class User(AbstractUser):
     """User model which works with all auth"""
     birthday = models.DateField(default=django.utils.timezone.now)
-    current_balance = models.IntegerField(default=1000)
+    current_balance = models.DecimalField(max_digits=10, decimal_places=2, default=1000.00)
     email = models.EmailField(unique=True)
     username = None
 
