@@ -9,3 +9,6 @@ class CustomSignupView(SignupView):
         context = super().get_context_data(**kwargs)
         context['form'] = CustomSignupForm()
         return context
+    
+def Profile(request):
+    return render(request, "profile.html")

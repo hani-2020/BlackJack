@@ -1,7 +1,18 @@
 """write your models here"""
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, UserManager
 import django.utils.timezone
+
+
+class CustomUserManager(UserManager):
+    """Since we switched out username for email a custom manager needs to be defined to handle making a superuser"""
+    def create_superuser(self, email, password=None):
+        user = self.model(email=email)
+        user.set_password(password)
+        user.is_superuser = True
+        user.save()
+        return user
+
 
 class User(AbstractUser):
     """User model which works with all auth"""
@@ -10,11 +21,12 @@ class User(AbstractUser):
     email = models.EmailField(unique=True)
     username = None
 
-    EMAIL_FIELD = 'email'
+    objects = CustomUserManager()
+
     USERNAME_FIELD = 'email'
 
     REQUIRED_FIELDS = []
 
     def __str__(self):
         return str(self.email)
-    
+        
