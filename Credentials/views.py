@@ -5,10 +5,11 @@ from .forms import CustomSignupForm, CustomLoginForm
 
 class CustomSignupView(SignupView):
     """To make custom signup view"""
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['form'] = CustomSignupForm()
-        return context
+    form_class = CustomSignupForm()
+
+    def form_valid(self, form):
+        super().form_valid(form)
+        return render(self.request, "account/profile.html")
     
 def Profile(request):
     return render(request, "account/profile.html")
