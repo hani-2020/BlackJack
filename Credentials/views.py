@@ -11,4 +11,4 @@ class CustomSignupView(SignupView):
         return context
     
 def Profile(request):
-    return render(request, "profile.html")
+    return render(request, "account/profile.html")
