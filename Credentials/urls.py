@@ -2,8 +2,8 @@
 put your Credential Urls here
 """
 from django.urls import path
-from .views import Profile, CustomSignupView
+from .views import profile
 
 urlpatterns = [
-    path("profile/", Profile, name='profile'),
+    path("profile/", profile, name='profile'),
 ]

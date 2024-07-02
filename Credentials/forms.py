@@ -21,7 +21,4 @@ class CustomSignupForm(SignupForm):
         user.save()
         return user
 
-class CustomLoginForm(LoginForm):
-    """Custom login form to take in email and password from user"""
-    email = forms.EmailField(max_length=254, required=True)
-    password = forms.CharField(widget=forms.PasswordInput, required=True)
+

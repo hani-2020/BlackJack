@@ -70,7 +70,6 @@ AUTHENTICATION_BACKENDS = [
 
 ACCOUNT_FORMS = {
     'signup': 'Credentials.forms.CustomSignupForm',
-    'login': 'Credentials.forms.CustomLoginForm',
 }
 
 SOCIALACCOUNT_PROVIDERS = {

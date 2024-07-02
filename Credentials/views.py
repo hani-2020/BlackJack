@@ -1,16 +1,12 @@
 """Create your views here."""
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
-from allauth.account.views import SignupView, LoginView
-from .forms import CustomSignupForm, CustomLoginForm
+from allauth.account.views import SignupView
+from .forms import CustomSignupForm
 
 class CustomSignupView(SignupView):
     """To make custom signup view"""
     form_class = CustomSignupForm()
 
-    def dispatch(self, request, *args, **kwargs):
-        print(request.POST)
-        return super().dispatch(request, *args, **kwargs)
-    
-def Profile(request):
+def profile(request):
+    """For displaying user profile"""
     return render(request, "account/profile.html")
