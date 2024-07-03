@@ -18,11 +18,11 @@
                     <div>BlackJack</div>
                 </div>
                 {% if not user.is_authenticated %}
-                <ul class="d-flex justify-content-between align-items-center p-0 m-0 col-2" style="list-style: none;">
+                <ul class="d-flex justify-content-evenly align-items-center p-0 m-0" style="list-style: none;">
                     <li>
                         <a href={% url "account_login" %} class="btn btn-primary">Login</a>
                     </li>
-                    <li>or</li>
+                    <li class="mx-2">or</li>
                     <li>
                         <a href={% url "account_signup" %} class="btn btn-primary">Signup</a>
                     </li>
@@ -49,8 +49,9 @@
             </div>
         </nav>
         {% block content %}{% endblock %}
-        <footer>
-            <h1>contact me</h1>
+        <footer class="bg-dark p-3 text-white">
+            <h1>Contact me:</h1>
+            <i class="bi bi-linkedin"></i>
         </footer>
     </body>
 </html>
