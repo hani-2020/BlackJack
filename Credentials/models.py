@@ -20,6 +20,7 @@ class User(AbstractUser):
     birthday = models.DateField(default=django.utils.timezone.now)
     current_balance = models.DecimalField(max_digits=10, decimal_places=2, default=1000.00)
     email = models.EmailField(unique=True)
+    image = models.ImageField(upload_to='user/',null=True, blank=True)
     username = None
 
     objects = CustomUserManager()
