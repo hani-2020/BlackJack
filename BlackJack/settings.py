@@ -35,14 +35,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'Chat.apps.ChatConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    #chat stuff
-    'daphne',
     'django.contrib.staticfiles',
     #Imported apps
     'allauth',
@@ -51,8 +48,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     #Created apps
     'Credentials',
-    #chat stuff
-    'channels'
 ]
 
 MIDDLEWARE = [
@@ -121,7 +116,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'), 
-                 os.path.join(BASE_DIR, 'Credentials','templates')],
+                 os.path.join(BASE_DIR, 'Credentials','templates'),
+                 os.path.join(BASE_DIR, 'Chat','templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -195,13 +191,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# chat stuff
-ASGI_APPLICATION = 'BlackJack.asgi.application'
-
-# chat stuff
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer"
-    }
-}
