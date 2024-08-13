@@ -31,16 +31,16 @@
                 <div class="nav-item dropdown btn btn-primary">
                     <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-around" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="me-4">
-                            {% if not user.img %}
+                            {% if not user.image %}
                             <i class="bi bi-person-circle fs-4"></i>
                             {% else %}
-                            <img src="{% static '/images/person.jpg' %}" style="height: 2.25rem; width: 2.25rem; border-radius: 100%;"/>
+                            <img src="{{user.image.url}}" style="height: 2.25rem; width: 2.25rem; border-radius: 100%;"/>
                             {% endif %}
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                       <li><a class="dropdown-item" href="#">Profile</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="{% url 'chat_index' %}">Chats</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li><a href={% url "account_logout" %} class="dropdown-item">Logout</a></li>
                     </ul>
