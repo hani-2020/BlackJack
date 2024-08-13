@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     #Created apps
     'Credentials',
-    'Chat'
+    'Chat',
+    'Friends'
 ]
 
 MIDDLEWARE = [
